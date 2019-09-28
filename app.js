@@ -2,6 +2,16 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 
+const mongoose = require('mongoose');
+// connect to mongodb
+mongoose.connect('mongodb://localhost/testdb');
+
+mongoose.connection.once('open', () => {
+    console.log("Ket noi da duoc thuc hien");
+}).on('error', () => {
+    console.log('Ket noi bi loi', error);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
