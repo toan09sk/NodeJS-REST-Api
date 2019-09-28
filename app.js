@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 // connect to mongodb
 mongoose.connect('mongodb://localhost/testdb');
+mongoose.Promise = global.Promise;
 
 mongoose.connection.once('open', () => {
     console.log("Ket noi da duoc thuc hien");
