@@ -9,10 +9,6 @@ router.get('/', (req, res, next) => {
         .exec()
         .then(docs => {
             console.log(docs);
-            // const response = {
-            //     count: docs.length,
-            //     products: docs
-            // };
             const response = {
                 count: docs.length,
                 products: docs.map(doc => {
@@ -35,7 +31,6 @@ router.get('/', (req, res, next) => {
                     message: 'No entries found'
                 });
             }
-            res.status(500).json(docs);
         })
         .catch(err => {
             console.log(err);

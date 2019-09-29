@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const prductSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    name: String,
+    name: { type: String, required: true },
     price: { type: Number, required: true }
 });
 
-module.exports = mongoose.model('Product', prductSchema);
+module.exports = mongoose.model('Product', productSchema);
 
 /*
 required: true --> bắt buộc phải nhập
